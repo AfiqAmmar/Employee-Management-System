@@ -26,7 +26,18 @@ public class Employee {
 	
 	@Column(name = "phoneNum")
 	private String phoneNum;
+
+	@Column(name = "salary")
+	private String salary;
 	
+	public String getSalary() {
+		return salary;
+	}
+
+	public void setSalary(String salary) {
+		this.salary = salary;
+	}
+
 	public long getId() {
 		return id;
 	}
