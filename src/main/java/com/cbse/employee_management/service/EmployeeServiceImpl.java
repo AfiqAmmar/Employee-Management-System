@@ -14,7 +14,7 @@ import com.cbse.employee_management.model.Employee;
 import com.cbse.employee_management.repository.EmployeeRepository;
 
 @Service
-public class EmployeeServiceImp implements EmployeeService{
+public class EmployeeServiceImpl implements EmployeeService{
 
 	@Autowired
 	private EmployeeRepository employeeRepository;

@@ -1,10 +1,15 @@
 package com.cbse.employee_management.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -27,16 +32,11 @@ public class Employee {
 	@Column(name = "phoneNum")
 	private String phoneNum;
 
-	@Column(name = "salary")
-	private String salary;
-	
-	public String getSalary() {
-		return salary;
-	}
-
-	public void setSalary(String salary) {
-		this.salary = salary;
-	}
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "project_id", nullable = false)
+	@JsonIgnore
+    
+	private Project project;
 
 	public long getId() {
 		return id;
@@ -76,6 +76,14 @@ public class Employee {
 	
 	public void setPhoneNum(String phoneNum) {
 		this.phoneNum = phoneNum;
+	}
+
+	public Project getProject() {
+		return project;
+	}
+	
+	public void setProject(Project project) {
+		this.project = project;
 	}
 	
 	

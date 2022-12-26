@@ -14,11 +14,15 @@ import org.springframework.data.domain.Page;
 
 import com.cbse.employee_management.model.Employee;
 import com.cbse.employee_management.service.EmployeeService;
+import com.cbse.employee_management.service.ProjectService;
 
 @Controller
 public class EmployeeController {
     @Autowired
 	private EmployeeService employeeService;
+
+	@Autowired
+	private ProjectService projectService;
 	
 
 	// display list of employees
@@ -32,6 +36,7 @@ public class EmployeeController {
 		// create model attribute to bind form data
 		Employee employee = new Employee();
 		model.addAttribute("employee", employee);
+		model.addAttribute("listProjects", projectService.getAllProjects());
 		return "new_employee";
 	}
 	

@@ -14,23 +14,27 @@
 		<form action="#" th:action="@{/saveEmployee}" th:object="${employee}"
 			method="POST">
 			    <input type="text" th:field="*{fname}"
-				placeholder="Employee First Name" class="form-control mb-4 col-4">
+				placeholder="Employee First Name" class="form-control mb-4 col-4" required>
 				
 				<input type="text" th:field="*{lname}"
-				placeholder="Employee Last Name" class="form-control mb-4 col-4">
+				placeholder="Employee Last Name" class="form-control mb-4 col-4" required>
 				
-				<input type="text" th:field="*{email}"
-				placeholder="Employee Email" class="form-control mb-4 col-4">
+				<input type="email" th:field="*{email}"
+				placeholder="Employee Email" class="form-control mb-4 col-4" required>
 
                 <input type="text" th:field="*{phoneNum}"
-				placeholder="Employee Phone Number" class="form-control mb-4 col-4">
+				placeholder="Employee Phone Number" class="form-control mb-4 col-4" required>
 
-                <input type="text" th:field="*{salary}"
-				placeholder="Employee Salary" class="form-control mb-4 col-4">
+				<select th:field="*{project}" class="form-control mb-4 col-4" required>
+					<th:block th:each="proj : ${listProjects}">
+						<option th:text="${proj.name}" th:value="${proj.id}"/>
+					</th:block>
+				</select>
+
 				
 				<button type="submit" class="btn btn-info col-2"> Save Employee</button>
 		</form>
-		
+
 		<hr>
 		
 		<a th:href = "@{/}"> Back to Employee List</a>
