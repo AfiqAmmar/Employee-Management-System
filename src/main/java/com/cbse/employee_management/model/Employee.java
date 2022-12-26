@@ -85,6 +85,11 @@ public class Employee {
 	public void setProject(Project project) {
 		this.project = project;
 	}
+
+	public String toString(){
+		return fname + lname;
+
+	}
 	
 	
 }

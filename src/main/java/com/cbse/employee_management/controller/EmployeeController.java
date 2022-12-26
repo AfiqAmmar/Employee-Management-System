@@ -55,6 +55,8 @@ public class EmployeeController {
 		
 		// set employee as a model attribute to pre-populate the form
 		model.addAttribute("employee", employee);
+		model.addAttribute("listProjects", projectService.getAllProjects());
+		
 		return "update_employee";
 	}
 	

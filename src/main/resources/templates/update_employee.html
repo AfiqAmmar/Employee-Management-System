@@ -18,13 +18,19 @@
 			<!-- Add hidden form field to handle update -->
 			<input type="hidden" th:field="*{id}" />
 			
-			    <input type="text" th:field="*{fname}" class="form-control mb-4 col-4">
+			    <input type="text" th:field="*{fname}" class="form-control mb-4 col-4" required>
 				
-				<input type="text" th:field="*{lname}" class="form-control mb-4 col-4">
+				<input type="text" th:field="*{lname}" class="form-control mb-4 col-4" required>
 				
-				<input type="text" th:field="*{email}" class="form-control mb-4 col-4">
+				<input type="text" th:field="*{email}" class="form-control mb-4 col-4" required>
 
-                <input type="text" th:field="*{phoneNum}" class="form-control mb-4 col-4">
+                <input type="text" th:field="*{phoneNum}" class="form-control mb-4 col-4" required>
+
+				<select th:field="*{project}" class="form-control mb-4 col-4" required>
+					<th:block th:each="proj : ${listProjects}">
+						<option th:text="${proj.name}" th:value="${proj.id}"/>
+					</th:block>
+				</select>
 				
 				<button type="submit" class="btn btn-info col-2"> Update Employee</button>
 		</form>
