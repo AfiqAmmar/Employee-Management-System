@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Management System</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<h1>Employee Management System</h1>
+		<hr>
+		<h2>Update Project</h2>
+
+		<form action="#" th:action="@{/saveProject}" th:object="${project}"
+			method="POST">
+				<input type="hidden" th:field="*{id}" />
+
+                <label for="name">Project Name:</label>
+                <input type="text" th:field="*{name}"
+				class="form-control mb-4 col-4" required>
+				
+				<label for="name">Project Description:</label>
+                <input type="text" th:field="*{description}"
+				class="form-control mb-4 col-4" required>
+				
+				<label for="name">Project Progress:</label>
+                <input type="text" th:field="*{progress}"
+				class="form-control mb-4 col-4" required>
+
+                <label for="name">Project Budget:</label>
+                <input type="text" th:field="*{budget}"
+				class="form-control mb-4 col-4" required>
+
+				<label for="name">Project Deadline:</label>
+                <input type="date" th:field="*{deadline}"
+				class="form-control mb-4 col-4" required>
+
+				
+				<button type="submit" class="btn btn-info col-2"> Save Employee</button>
+		</form>
+
+		<hr>
+		
+		<a th:href = "@{/projects}"> Back to Project List</a>
+	</div>
+</body>
+</html>

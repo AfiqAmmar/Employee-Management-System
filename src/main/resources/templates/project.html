@@ -50,11 +50,11 @@
 				<tr th:each="project : ${listProjects}">
 					<td th:text="${project.name}"></td>
 					<td th:text="${project.description}"></td>
-                    <td th:text="leklu"></td>
+                    <td th:text="${project.employees}"></td>
 					<td th:text="${project.progress}"></td>
 					<td th:text="${project.budget}"></td>
 					<td th:text="${project.deadline}"></td>
-					<td> <a th:href="@{/showFormForUpdateEmployee/{id}(id=${project.id})}" class="btn btn-primary">Update</a>
+					<td> <a th:href="@{/showFormForUpdateProject/{id}(id=${project.id})}" class="btn btn-primary">Update</a>
 					    <a th:href="@{/deleteProject/{id}(id=${project.id})}" class="btn btn-danger">Delete</a>
 					</td>
 				</tr>

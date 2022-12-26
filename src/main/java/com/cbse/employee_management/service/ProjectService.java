@@ -6,7 +6,7 @@ import com.cbse.employee_management.model.Project;
 
 public interface ProjectService {
 	List<Project> getAllProjects();
-	// void saveEmployee(Employee employee);
-	// Employee getEmployeeById(long id);
+	void saveProject(Project project);
+	Project getProjectById(long id);
 	// void deleteEmployeeById(long id);
 }

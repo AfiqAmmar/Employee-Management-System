@@ -1,6 +1,8 @@
 package com.cbse.employee_management.model;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
@@ -36,9 +38,17 @@ public class Project {
 	@Column(name = "deadline")
 	private Date deadline;
 
-    // @OneToMany(mappedBy = "project", fetch = FetchType.LAZY,
-    // cascade = CascadeType.ALL)
-    // private Set<Employee> employees;
+    @OneToMany(mappedBy = "project",
+    cascade = CascadeType.ALL)
+    private List<Employee> employees = new ArrayList<>();
+
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
+    }
 
     public long getId() {
         return id;
