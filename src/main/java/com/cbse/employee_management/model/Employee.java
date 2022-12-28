@@ -1,7 +1,11 @@
 package com.cbse.employee_management.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -10,6 +14,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -37,6 +42,14 @@ public class Employee {
 	@JsonIgnore
     
 	private Project project;
+
+	@OneToMany(mappedBy = "employee",
+    cascade = CascadeType.ALL)
+    private List<Discipline> disciplines = new ArrayList<>();
+
+    public List<Discipline> getDisciplines() {
+        return disciplines;
+    }
 
 	public long getId() {
 		return id;
