@@ -33,6 +33,12 @@ public class Discipline {
     
     @Column(name = "points")
 	private int points;
+    
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "employee_id", nullable = false)
+	@JsonIgnore
+
+	private Employee employee;
 
     public long getId() {
         return id;
@@ -73,11 +79,12 @@ public class Discipline {
     public void setType(String type) {
         this.type = type;
     }
-	
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "employee_id", nullable = false)
-	@JsonIgnore
-    
-	private Employee employee;
 
+    public Employee getEmployee() {
+		return employee;
+	}
+	
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
 }
