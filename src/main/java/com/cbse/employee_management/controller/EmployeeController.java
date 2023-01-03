@@ -68,6 +68,12 @@ public class EmployeeController {
 		return "redirect:/";
 	}
 	
+	@GetMapping("/showEmployeesWithMajorDisciplineCases")
+	public String showEmployeesWithMajorDisciplineCases(Model model) {
+		// model.addAttribute("listEmployeesWithMoreThan50Points", employeeService.getEmployeesWithMoreThan50DisciplinePoints());
+		model.addAttribute("listEmployees", employeeService.getAllEmployees());
+		return "major_discipline_cases";
+	}
 	
 	@GetMapping("/page/{pageNo}")
 	public String findPaginated(@PathVariable (value = "pageNo") int pageNo, 
