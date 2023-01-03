@@ -8,5 +8,5 @@ public interface ProjectService {
 	List<Project> getAllProjects();
 	void saveProject(Project project);
 	Project getProjectById(long id);
-	// void deleteEmployeeById(long id);
+	void deleteProjectById(long id);
 }

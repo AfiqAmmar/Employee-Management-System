@@ -29,4 +29,9 @@ public class DisciplineServiceImpl implements DisciplineService{
 	public List<Discipline> getDisciplineByEmployeeId(long id) {
 		return disciplineRepository.findByEmployeeId(id);
 	}
+
+	@Override
+	public void deleteDisciplineById(long id) {
+		this.disciplineRepository.deleteById(id);
+	}
 }

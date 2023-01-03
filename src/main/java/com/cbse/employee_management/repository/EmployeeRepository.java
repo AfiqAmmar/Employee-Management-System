@@ -9,5 +9,5 @@ import com.cbse.employee_management.model.Employee;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long>{
-    
+    List<Employee> findByProjectId(Long projectId);
 }

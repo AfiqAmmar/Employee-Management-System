@@ -47,6 +47,11 @@ public class EmployeeServiceImpl implements EmployeeService{
 	}
 
 	@Override
+	public List<Employee> getEmployeeByProjectId(long id) {
+		return employeeRepository.findByProjectId(id);
+	}
+
+	@Override
 	public Page<Employee> findPaginated(int pageNo, int pageSize, String sortField, String sortDirection) {
 		Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending() :
 			Sort.by(sortField).descending();
