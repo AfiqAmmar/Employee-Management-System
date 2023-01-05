@@ -60,9 +60,12 @@ public class DisciplineController {
 	@GetMapping("/deleteDiscipline/{id}")
 	public String deleteDiscipline(@PathVariable (value = "id") long id) {
 		
-		// call delete discipline method 
+		// call delete discipline method
+		Discipline discipline = disciplineService.getDisciplineById(id);
+		Employee employee = discipline.getEmployee();
+		long employee_id = employee.getId(); 
 		this.disciplineService.deleteDisciplineById(id);
-		return "redirect:/showDisciplinary/" + id;
+		return "redirect:/showDisciplinary/"+ employee_id;
 	}
 	
 }

@@ -8,5 +8,6 @@ public interface DisciplineService {
 	List<Discipline> getAllDisciplines();
 	void saveDiscipline(Discipline discipline);
 	List<Discipline> getDisciplineByEmployeeId(long id);
+	Discipline getDisciplineById(long id);
 	void deleteDisciplineById(long id);
 }

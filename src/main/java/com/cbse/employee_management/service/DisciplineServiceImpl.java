@@ -31,6 +31,18 @@ public class DisciplineServiceImpl implements DisciplineService{
 	}
 
 	@Override
+	public Discipline getDisciplineById(long id) {
+		Optional<Discipline> optional = disciplineRepository.findById(id);
+		Discipline discipline = null;
+		if (optional.isPresent()) {
+			discipline = optional.get();
+		} else {
+			throw new RuntimeException(" discipline not found for id :: " + id);
+		}
+		return discipline;
+	}
+
+	@Override
 	public void deleteDisciplineById(long id) {
 		this.disciplineRepository.deleteById(id);
 	}
