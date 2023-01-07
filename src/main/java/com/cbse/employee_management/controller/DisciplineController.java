@@ -26,7 +26,7 @@ public class DisciplineController {
 	private DisciplineService disciplineService;
 
 	@GetMapping("/showDisciplinary/{id}")
-	public String showProfile(@PathVariable ( value = "id") long id, Model model) {
+	public String showDisciplinary(@PathVariable ( value = "id") long id, Model model) {
 		
 		// get employee from the service
 		Employee employee = employeeService.getEmployeeById(id);
