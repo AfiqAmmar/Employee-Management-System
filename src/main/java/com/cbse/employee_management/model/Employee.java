@@ -103,7 +103,7 @@ public class Employee {
 	}
 
 	public String toString(){
-		return fname + lname;
+		return fname + " " + lname;
 
 	}
 	
